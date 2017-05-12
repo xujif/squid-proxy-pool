@@ -1,0 +1,26 @@
+{
+  "name": "auto-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^4.8.0",
+    "async-busboy": "^0.5.0",
+    "http-errors": "^1.6.1",
+    "koa": "^2.2.0",
+    "koa-basic-auth": "^2.0.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.1",
+    "koa-markdown": "^2.0.1",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.1.1",
+    "koa-send": "^4.1.0"
+  }
+}
