@@ -9,10 +9,12 @@ COPY conf/squid.conf /etc/squid/
 
 WORKDIR /app
 ENV NODE_ENV production
+
 COPY package.json /app
 RUN npm install
+
 COPY . /app
 
 EXPOSE 3000
 EXPOSE 3128
-CMD ["sh","-c","node index.js && sleep 1; squid"]
+CMD ["sh","-c","node init_proxy.js && squid && node index.js"]
