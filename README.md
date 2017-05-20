@@ -4,9 +4,9 @@ control service at port 3000
 
 ## API  
 
-#### Get proxys
+#### Get proxies
 ```
-POST /proxys
+POST /proxies
 ```
 BODY
 ```
@@ -14,7 +14,7 @@ BODY
 
 ```
 
-#### Get current proxy config
+#### Get current proxies config
 ```
-GET /proxys
+GET /proxies
 ```

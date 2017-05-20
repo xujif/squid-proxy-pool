@@ -9,7 +9,7 @@ COPY conf/squid.conf /etc/squid/
 RUN touch /etc/squid/peers.conf
 
 WORKDIR /app
-ENV NODE_NEV production
+ENV NODE_ENV production
 COPY package.json /app
 RUN npm install
 COPY . /app

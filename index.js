@@ -9,27 +9,27 @@ const convert = require('koa-convert')
 const confPath = '/etc/squid/peers.conf'
 
 // init str
-if (process.env.NODE_ENV === 'production' && !fs.existsSync(confPath) && process.env.PROXYS) {
-  let conf = process.env.PROXYS.split(';').filter(s => utils.testProxyStr(s)).map(s => utils.parseProxyStrToSquidConf(s)).join('\n')
+if (process.env.NODE_ENV === 'production' && !fs.existsSync(confPath) && process.env.PROXIES) {
+  let conf = process.env.PROXIES.split(';').filter(s => utils.testProxyStr(s)).map(s => utils.parseProxyStrToSquidConf(s)).join('\n')
   fs.writeFileSync(confPath, conf)
 }
 
 
 const router = new Router()
 
-router.get('/proxys', (ctx, next) => {
+router.get('/proxies', (ctx, next) => {
   let conf = fs.readFileSync(confPath, 'utf-8')
   ctx.body = {
     conf: conf
   }
 })
 
-router.post('/proxys', (ctx, next) => {
-  let proxys = ctx.request.body.filter(s => utils.testProxyStr(s))
-  let conf = proxys.map(s => utils.parseProxyStrToSquidConf(s)).join('\n')
+router.post('/proxies', (ctx, next) => {
+  let proxies = ctx.request.body.filter(s => utils.testProxyStr(s))
+  let conf = proxies.map(s => utils.parseProxyStrToSquidConf(s)).join('\n')
   fs.writeFileSync(confPath, conf)
   ctx.body = {
-    proxys: proxys,
+    proxies: proxies,
     conf: conf
   }
   ctx.status = 202
