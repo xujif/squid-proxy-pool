@@ -15,4 +15,4 @@ COPY . /app
 
 EXPOSE 3000
 EXPOSE 3128
-CMD ["sh","-c","squid && node index.js"]
+CMD ["sh","-c","node index.js && sleep 1; squid"]
